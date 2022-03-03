@@ -1,3 +1,5 @@
+from pyspark.sql import HiveContext
+
 from driver.SparkSessionBase import SparkSessionBase
 
 
@@ -8,4 +10,4 @@ class SparkLoader(SparkSessionBase):
 
     def __init__(self):
         self.spark = self._create_spark_session()
-
+        self.hcx = HiveContext(self.spark.sparkContext)
