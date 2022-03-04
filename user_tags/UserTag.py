@@ -41,8 +41,8 @@ class UserGenderTag(SparkSessionBase):
         # df.select(col('is_famous_enterprise').alias('是否名企')) \
         #     .groupBy('是否名企').agg(count('是否名企').alias('count')).where('count > 10').show()
 
-        #df.select(col('is_famous_enterprise').alias('是否名企')) \
-            # .groupBy('是否名企').agg(count('是否名企').alias('count')).where('count > 10').show()
+        # df.select(col('is_famous_enterprise').alias('是否名企')) \
+        # .groupBy('是否名企').agg(count('是否名企').alias('count')).where('count > 10').show()
 
         df.dropna('any').select(col('work_year').alias('工作年限')) \
             .groupBy('工作年限').agg(count('工作年限').alias('count')).where('count > 10').show()
