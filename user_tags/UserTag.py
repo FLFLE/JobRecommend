@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 from typing import List
 
 from pyspark.sql import HiveContext
@@ -43,17 +43,6 @@ class UserGenderTag(SparkSessionBase):
 
         df.dropna('any').select(col('work_year').alias('工作年限')) \
             .groupBy('工作年限').agg(count('工作年限').alias('count')).where('count > 10').show()
-
-
-
-
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
