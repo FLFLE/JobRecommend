@@ -32,5 +32,5 @@ cleaned_account.join(position_df,account_df['expectcity']==position_df['city'])\
 deliver_df.join(account_df,deliver_df['account_id']==account_df['id'])\
     .select(account_df['highesteducation']) \
     .groupBy('highesteducation').agg(count('highesteducation').alias('count')).where('count > 10').show()
-
+    
 
