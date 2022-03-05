@@ -3,6 +3,7 @@ from pyspark.ml.feature import CountVectorizer, IDF, CountVectorizerModel, IDFMo
 from SparkSession import SparkSessionBase
 
 
+
 class TFIDFWriter(SparkSessionBase):
     SPARK_URL = "local"
     SPARK_APP_NAME = 'TFIDFWriter'
