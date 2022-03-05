@@ -36,6 +36,8 @@ class SparkSessionBase:
             ("spark.executor.cores", self.SPARK_EXECUTOR_CORES),
             # 设置spark作业的Executor数量，默认为两个
             ("spark.executor.instances", self.SPARK_EXECUTOR_INSTANCES),
+            ("spark.executor.heartbeatInterval", "2s"),
+            ("spark.network.timeout", "360s")
         )
 
         conf.setAll(settings)
