@@ -12,9 +12,8 @@ salary2 = salary.rdd.map(lambda x: x[1]).collect()
 n = 0
 num1, num2, num3, num4, num5 = 0, 0, 0, 0, 0
 for i in salary1:
-    i = i.encode('utf-8').replace('本科', '0').replace('大专', '0').replace('不限', '0').replace('员工关系', '0').replace('数值',
-                                                                                                                '0').replace(
-        '硕士', '0')
+    i = i.encode('utf-8').replace('本科', '0').replace('大专', '0').replace('不限', '0').replace('员工关系', '0')\
+        .replace('数值', '0').replace('硕士', '0')
     i = int(i)
     if i < 8:
         num1 = num1 + 1

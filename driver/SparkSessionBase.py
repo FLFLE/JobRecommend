@@ -7,7 +7,8 @@ import os
 class SparkSessionBase:
     SPARK_APP_NAME = None
     SPARK_URL = "yarn"
-    SPARK_EXECUTOR_MEMORY = "1g"
+    SPARK_EXECUTOR_MEMORY = "4g"
+    SPARK_DRIVER_MEMORY = '4g'
     SPARK_EXECUTOR_CORES = 1
     SPARK_EXECUTOR_INSTANCES = 2
     ENABLE_HIVE_SUPPORT = False
@@ -28,6 +29,7 @@ class SparkSessionBase:
             ("spark.app.name", self.SPARK_APP_NAME),
             # 设置该app启动时占用的内存用量，默认2g
             ("spark.executor.memory", self.SPARK_EXECUTOR_MEMORY),
+            ("spark.driver.memory", self.SPARK_DRIVER_MEMORY),
             # spark master的地址
             ("spark.master", self.SPARK_URL),
             # 设置spark executor使用的CPU核心数，默认是1核心
