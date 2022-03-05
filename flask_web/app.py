@@ -20,9 +20,10 @@ def search_user():
     print(tags)
     schema = ['user_sex', 'user_position_type', 'user_age', 'user_education', 'user_expectposition', 'user_expectcity',
               'user_expectsalarys', 'user_status', 'user_latest_schoolname', 'user_latest_deliver']
-    tags_json = json.dumps(dict(zip(schema, list(tags))))
-    print(tags_json)
-    return render_template('user_portrait.html')
+    user_dict = dict(zip(schema, list(tags)))
+    user_tags_json = json.dumps(user_dict, ensure_ascii=False)
+    print(user_tags_json)
+    return render_template('user_portrait.html', user_tags_json=json.loads(user_tags_json))
 
 
 if __name__ == '__main__':

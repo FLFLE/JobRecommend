@@ -89,11 +89,11 @@ def get_latest_schoolname(user_id):
 
 
 # 最近投递
-# def get_latest_deliver(user_id):
-#     user_latest_deliver = deliver_df.select('deliver_time', 'company_id'). \
-#         where(f'account_id=={user_id}').orderBy(col('deliver_time')).limit(5)
-#     user_latest_deliver = user_latest_deliver.rdd.map(lambda x: (x[0], x[1])).collect()
-#     return user_latest_deliver
+def get_latest_deliver(user_id):
+    user_latest_deliver = deliver_df.select('deliver_time', 'company_id'). \
+        where(f'account_id=={user_id}').orderBy(col('deliver_time')).limit(5)
+    user_latest_deliver = user_latest_deliver.rdd.map(lambda x: (x[0], x[1])).collect()
+    return user_latest_deliver
 
 
 class User:
@@ -101,19 +101,15 @@ class User:
         self.user_id = user_id
 
     def get_protrait(self):
-        # user_sex = get_user_sex(self.user_id)
-        # user_position_type = get_position_type(self.user_id)
-        # user_age = get_age(self.user_id)
-        # user_education = get_education(self.user_id)
-        # user_expectposition = get_expectposition(self.user_id)
-        # user_expectcity = get_expectcity(self.user_id)
-        # user_expectsalarys = get_expectsalarys(self.user_id)
-        # user_status = get_status(self.user_id)
-        # user_latest_schoolname = get_latest_schoolname(self.user_id)
-        # user_latest_deliver = get_latest_deliver(self.user_id)
-        # return user_sex, user_position_type, user_age, user_education, user_expectposition, user_expectcity, \
-        #        user_expectsalarys, user_status, user_latest_schoolname
-                # ,user_latest_deliver
-
-if __name__=='__main__':
-    print(User(2710).get_protrait())
+        user_sex = get_user_sex(self.user_id)
+        user_position_type = get_position_type(self.user_id)
+        user_age = get_age(self.user_id)
+        user_education = get_education(self.user_id)
+        user_expectposition = get_expectposition(self.user_id)
+        user_expectcity = get_expectcity(self.user_id)
+        user_expectsalarys = get_expectsalarys(self.user_id)
+        user_status = get_status(self.user_id)
+        user_latest_schoolname = get_latest_schoolname(self.user_id)
+        user_latest_deliver = get_latest_deliver(self.user_id)
+        return user_sex, user_position_type, user_age, user_education, user_expectposition, user_expectcity, \
+               user_expectsalarys, user_status, user_latest_schoolname, user_latest_deliver
