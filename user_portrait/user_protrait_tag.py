@@ -102,7 +102,6 @@ class User:
         user_status = get_status(self.user_id)
         user_latest_schoolname = get_latest_schoolname(self.user_id)
         user_latest_deliver = get_latest_deliver(self.user_id)
-        return user_sex, user_position_type, user_age, \
-               user_education, user_expectposition, user_expectcity, \
+        return user_sex, user_position_type, user_age, user_education, user_expectposition, user_expectcity, \
                user_expectsalarys, user_status, user_latest_schoolname, \
                user_latest_deliver
