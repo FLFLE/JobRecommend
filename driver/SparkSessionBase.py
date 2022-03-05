@@ -7,8 +7,8 @@ import os
 class SparkSessionBase:
     SPARK_APP_NAME = None
     SPARK_URL = "yarn"
-    SPARK_EXECUTOR_MEMORY = "4g"
-    SPARK_DRIVER_MEMORY = '4g'
+    SPARK_EXECUTOR_MEMORY = "5g"
+    SPARK_DRIVER_MEMORY = "5g"
     SPARK_EXECUTOR_CORES = 1
     SPARK_EXECUTOR_INSTANCES = 2
     ENABLE_HIVE_SUPPORT = False
@@ -36,8 +36,6 @@ class SparkSessionBase:
             ("spark.executor.cores", self.SPARK_EXECUTOR_CORES),
             # 设置spark作业的Executor数量，默认为两个
             ("spark.executor.instances", self.SPARK_EXECUTOR_INSTANCES),
-            ("spark.executor.heartbeatInterval", "2s"),
-            ("spark.network.timeout", "360s")
         )
 
         conf.setAll(settings)
