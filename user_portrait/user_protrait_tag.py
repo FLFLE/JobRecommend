@@ -88,11 +88,13 @@ def get_latest_schoolname(user_id):
     return user_latest_schoolname
 
 
-# 最近投递
+# 最近投递（时间，公司，行业，职位，工作年限要求，薪资，城市）
 def get_latest_deliver(user_id):
-    user_latest_deliver = deliver_df.select('deliver_time', 'company_id'). \
-        where(f'account_id=={user_id}').orderBy(col('deliver_time')).limit(5)
-    user_latest_deliver = user_latest_deliver.rdd.map(lambda x: (x[0], x[1])).collect()
+    latest_deliver_df = hcx.table('talents.ods_latest_deliver')
+    user_latest_deliver = latest_deliver_df.select('deliver_time', 'companyname', 'industryfield', 'positionname',
+                                                   'workyear', 'salary', 'city').where(f'account_id = {user_id}').limit(5)
+    user_latest_deliver.show()
+    user_latest_deliver = user_latest_deliver.rdd.map(lambda x: (x[0], x[1], x[2], x[3], x[4], x[5], x[6])).collect()
     return user_latest_deliver
 
 
@@ -113,3 +115,5 @@ class User:
         user_latest_deliver = get_latest_deliver(self.user_id)
         return user_sex, user_position_type, user_age, user_education, user_expectposition, user_expectcity, \
                user_expectsalarys, user_status, user_latest_schoolname, user_latest_deliver
+
+
