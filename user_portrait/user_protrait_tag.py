@@ -9,9 +9,6 @@ hcx = SparkLoader().hcx
 
 # 获取数据
 account_df = hcx.table('talents.ods_account')
-position_df = hcx.table('talents.ods_position')
-company_df = hcx.table('talents.ods_company')
-deliver_df = hcx.table('talents.ods_deliver')
 
 
 # 性别
@@ -92,8 +89,8 @@ def get_latest_schoolname(user_id):
 def get_latest_deliver(user_id):
     latest_deliver_df = hcx.table('talents.ods_latest_deliver')
     user_latest_deliver = latest_deliver_df.select('deliver_time', 'companyname', 'industryfield', 'positionname',
-                                                   'workyear', 'salary', 'city').where(f'account_id = {user_id}').limit(5)
-    user_latest_deliver.show()
+                                                   'workyear', 'salary', 'city').where(f'account_id = {user_id}').limit(
+        5)
     user_latest_deliver = user_latest_deliver.rdd.map(lambda x: (x[0], x[1], x[2], x[3], x[4], x[5], x[6])).collect()
     return user_latest_deliver
 
@@ -115,5 +112,3 @@ class User:
         user_latest_deliver = get_latest_deliver(self.user_id)
         return user_sex, user_position_type, user_age, user_education, user_expectposition, user_expectcity, \
                user_expectsalarys, user_status, user_latest_schoolname, user_latest_deliver
-
-

@@ -8,10 +8,8 @@ spark = SparkLoader().spark
 hcx = SparkLoader().hcx
 
 # 获取数据
-account_df = hcx.table('talents.ods_account')
 position_df = hcx.table('talents.ods_position')
-company_df = hcx.table('talents.ods_company')
-deliver_df = hcx.table('talents.ods_deliver')
+position_profile_df = hcx.table('talents.position_profile')
 
 
 # 职位画像城市标签
@@ -58,6 +56,13 @@ def get_position_education(position_id):
     return position_education
 
 
+def get_position_keywords(position_id):
+    position_keywords = position_profile_df.select('keywords').where(f'position_id == {position_id}')
+    position_keywords = position_keywords.collect()
+    position_keywords = position_keywords[0][0]
+    return position_keywords
+
+
 class Position():
     def __init__(self, position_id):
         self.position_id = position_id
@@ -68,4 +73,5 @@ class Position():
         position_workyear = get_position_workyear(self.position_id)
         position_category = get_position_category(self.position_id)
         position_education = get_position_education(self.position_id)
-        return position_city, position_salary, position_workyear, position_category, position_education
+        position_keywords = get_position_keywords(self.position_id)
+        return position_city, position_salary, position_workyear, position_category, position_education, position_keywords
