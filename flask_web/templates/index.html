@@ -1,25 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/index.css">
+    <title>运营数据</title>
+    <script src="js/jquery-2.2.1.min.js"></script>
+    <script src="js/rem.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/index.js"></script>
 </head>
 <body>
-<form method="post" action="search_user">
-    用户id：<label>
-    <input type="text" name="user_id">
-</label> <br>
-    <input type="submit" value='搜索'>
-    <br>
-</form>
+    <div class="t_container">
+        <header class="t_h_bg">
+            <span>运营大数据</span>
+        </header>
 
-<form method="post" action="search_position">
-    职位id：<label>
-    <input type="text" name="position_id">
-</label> <br>
-    <input type="submit" value='搜索'>
-</form>
+        <main class="t_main">
+            <div class="width: 58.33333333%;  width: 58.33333333%;  height:4.5rem">
+                <table style="width:100%;height:48px;">
+                    <tr>
+                        <td style="width:50%;text-align:center;padding-left:10px;color:#fff;font-size:14px;font-weight:bold;">
+                        <form method="post" action="search_user">
+                            <label style="color:wheat;width:100px;" >用户id：
+                            <input type="text"  name="user_id" style="width:100px;"  />
+                        </label>
+                            <input type="submit" value='搜索' >
+                        </form>
 
-</form>
+                        </td>
+                        <td style="width:50%;text-align:center;padding-left:10px;color:#fff;font-size:14px;font-weight:bold;" >
+                            <form method="post" action="search_position">
+                                <label style="color:wheat;width:100px;">职位id：
+                                <input type="text" name="position_id" style="width:100px;  "/>
+                            </label>
+                                <input type="submit" value='搜索'>
+                            </form>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+            <div class="t_box">
+                <div class="main_table t_btn8">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>职位所在城市： </th>
+                            <th>职位薪资</th>
+                            <th>职位要求工作年限</th>
+                            <th>职位类别</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                        <thead>
+                        <tr>
+                            <th>职位所在城市： </th>
+                            <th>职位薪资</th>
+                            <th>职位要求工作年限</th>
+                            <th>职位类别</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
 </body>
 </html>

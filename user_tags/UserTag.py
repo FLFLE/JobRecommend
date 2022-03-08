@@ -21,6 +21,12 @@ class UserGenderTag(SparkSessionBase):
         hcx.table('talents.ods_position')
         hcx.table('talents.ods_company')
         hcx.table('talents.ods_deliver')
+
+
+        df.dropna('any').select(col('work_year').alias('工作年限')) \
+            .groupBy('工作年限').agg(count('工作年限').alias('count')).where('count > 10').where(col('工作年限') != 'NULL').orderBy(
+            desc('工作年限')).show()
+        
         # df.select('id',when(col('sex') == '男', '男').when(col('sex') == '女', '女').otherwise('未知').alias('性别')
         #           ).groupby('性别').agg(count('性别').alias('count')).show()
 
@@ -44,9 +50,7 @@ class UserGenderTag(SparkSessionBase):
         # df.select(col('is_famous_enterprise').alias('是否名企')) \
         # .groupBy('是否名企').agg(count('是否名企').alias('count')).where('count > 10').show()
 
-        df.dropna('any').select(col('work_year').alias('工作年限')) \
-            .groupBy('工作年限').agg(count('工作年限').alias('count')).where('count > 10').where(col('工作年限') != 'NULL').orderBy(
-            desc('工作年限')).show()
+
 
 
 if __name__ == '__main__':
