@@ -2,6 +2,7 @@ from driver.SparkLoader import SparkLoader
 from pyspark.sql.functions import *
 from pyspark.sql import Window
 
+# 热门企业top5
 hcx = SparkLoader().hcx
 company_df = hcx.table('talents.ods_company')
 deliver_df = hcx.table('talents.ods_deliver')

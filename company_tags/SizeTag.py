@@ -1,6 +1,7 @@
 from driver.SparkLoader import SparkLoader
 from pyspark.sql.functions import *
 
+# 企业规模
 hcx = SparkLoader().hcx
 df = hcx.table('talents.ods_company')
 
