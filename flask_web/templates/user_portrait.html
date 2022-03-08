@@ -6,8 +6,8 @@
 </head>
 <body>
 
-性别：{{user_tags_json['user_sex']}}  <br>
-年龄：{{user_tags_json['user_age']}}  <br>
+性别：{{user_tags_json['user_sex']}} <br>
+年龄：{{user_tags_json['user_age']}} <br>
 职位类别：{{user_tags_json['user_position_type']}} <br>
 教育情况：{{user_tags_json['user_education']}} <br>
 期望职位：{{user_tags_json['user_expectposition']}} <br>
@@ -16,6 +16,13 @@
 在职状况：{{user_tags_json['user_status']}} <br>
 毕业院校：{{user_tags_json['user_latest_schoolname']}} <br>
 最近投递：{{user_tags_json['user_latest_deliver']}} <br>
+{{user_tags_json['user_latest_deliver'][0][0]}}<br>
+{{user_tags_json['user_latest_deliver'][0][1]}}
+
+
+<script>
+    let user_json = {{user_tags_json['user_latest_deliver']|tojson}}
+    console.assert(user_json)
 </script>
 </body>
 </html>

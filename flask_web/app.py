@@ -21,6 +21,7 @@ def search_user():
               'user_expectsalarys', 'user_status', 'user_latest_schoolname', 'user_latest_deliver']
     user_dict = dict(zip(schema, list(tags)))
     user_tags_json = json.dumps(user_dict, ensure_ascii=False)
+    print(user_tags_json)
     return render_template('user_portrait.html', user_tags_json=json.loads(user_tags_json))
 
 
@@ -32,6 +33,7 @@ def search_position():
               'position_keywords']
     position_dict = dict(zip(schema, list(tags)))
     position_tags_json = json.dumps(position_dict, ensure_ascii=False)
+    print(position_tags_json)
     return render_template('position_protrait.html', position_tags_json=json.loads(position_tags_json))
 
 
